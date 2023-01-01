@@ -1,11 +1,7 @@
 package modelbasedtesting;
 
 import modelbasedtesting.enums.AlertStates;
-import nz.ac.waikato.modeljunit.Action;
-import nz.ac.waikato.modeljunit.FsmModel;
-import nz.ac.waikato.modeljunit.GreedyTester;
-import nz.ac.waikato.modeljunit.StopOnFailureListener;
-import nz.ac.waikato.modeljunit.Tester;
+import nz.ac.waikato.modeljunit.*;
 import nz.ac.waikato.modeljunit.coverage.ActionCoverage;
 import nz.ac.waikato.modeljunit.coverage.StateCoverage;
 import nz.ac.waikato.modeljunit.coverage.TransitionPairCoverage;
@@ -107,7 +103,7 @@ public class AlertSystemModelTest implements FsmModel {
 
     @Test
     public void AlertSystemModelRunner() throws FileNotFoundException {
-        final Tester tester = new GreedyTester(new AlertSystemModelTest());
+        final Tester tester = new LookaheadTester(new AlertSystemModelTest());
         tester.setRandom(new Random());
         tester.buildGraph();
         tester.addListener(new StopOnFailureListener());
@@ -115,7 +111,7 @@ public class AlertSystemModelTest implements FsmModel {
         tester.addCoverageMetric(new TransitionPairCoverage());
         tester.addCoverageMetric(new StateCoverage());
         tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(20);
+        tester.generate(50);
         tester.printCoverage();
     }
 }
