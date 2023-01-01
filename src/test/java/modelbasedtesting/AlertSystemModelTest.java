@@ -7,9 +7,6 @@ import nz.ac.waikato.modeljunit.coverage.StateCoverage;
 import nz.ac.waikato.modeljunit.coverage.TransitionPairCoverage;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
-
-import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Random;
@@ -45,7 +42,6 @@ public class AlertSystemModelTest implements FsmModel {
         alertCreated = true;
         alertCreationFailed = false;
         alertsDeletionFailed = false;
-//        numberOfAlerts+=1;
 
         modelState = AlertStates.API_CALL;
 
@@ -65,7 +61,6 @@ public class AlertSystemModelTest implements FsmModel {
         Assert.assertEquals("The models' delete alert state doesn't match the SUT's state.", alertsDeleted, systemUnderTest.areAlertsDeleted());
     }
 
-    //either create or delete
     public boolean viewAlertsGuard() { return (getState().equals(AlertStates.ALERTS_PAGE) || getState().equals(AlertStates.BAD_API_CALL) || getState().equals(AlertStates.API_CALL)); }
     public @Action void viewAlerts() {
         systemUnderTest.viewAlerts();
