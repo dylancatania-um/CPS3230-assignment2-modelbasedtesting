@@ -18,9 +18,6 @@ public class AlertSystem {
     WebDriver driver;
 
     private boolean alertCreated, alertsDeleted, alertsViewed, alertCreationFailed, alertsDeletionFailed ;
-    private int numberOfAlerts;
-
-    int getAlerts() { return numberOfAlerts; }
 
     boolean isAlertCreationFailed() { return alertCreationFailed; }
 
@@ -80,7 +77,6 @@ public class AlertSystem {
         alertsDeleted = false;
         alertsDeletionFailed = false;
         alertCreationFailed = false;
-        numberOfAlerts +=1;
     }
 
     void createAlertInvalid() throws IOException {
@@ -121,7 +117,6 @@ public class AlertSystem {
         alertsDeleted = false;
         alertsDeletionFailed = false;
         alertCreationFailed = true;
-        numberOfAlerts +=1;
     }
 
     void deleteAlerts() throws IOException {
@@ -154,7 +149,6 @@ public class AlertSystem {
         alertCreated = false;
         alertsViewed = true;
         alertsDeleted = true;
-        numberOfAlerts = 0;
         alertsDeletionFailed = false;
         alertCreationFailed = false;
     }
@@ -186,7 +180,6 @@ public class AlertSystem {
     }
 
     void viewAlerts() {
-        //navigate to website ?
         setup();
 
         alertCreated = false;
@@ -194,6 +187,5 @@ public class AlertSystem {
         alertsDeleted = false;
         alertsDeletionFailed = false;
         alertCreationFailed = false;
-        //verify Alerts viewed vs numberOfAlerts
     }
 }
