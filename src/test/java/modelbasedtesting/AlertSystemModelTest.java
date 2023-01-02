@@ -106,7 +106,7 @@ public class AlertSystemModelTest implements FsmModel {
         tester.addCoverageMetric(new TransitionPairCoverage());
         tester.addCoverageMetric(new StateCoverage());
         tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(50);
+        tester.generate(100);
         tester.printCoverage();
     }
 }
